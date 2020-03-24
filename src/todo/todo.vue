@@ -80,6 +80,7 @@ export default {
   max-height:500px;
   margin-top: 80px;
   overflow-y: auto;
+  border-radius: 10px;
 }
 .add-input {
   position: relative;
