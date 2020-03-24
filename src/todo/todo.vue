@@ -9,9 +9,9 @@
       v-model="inputValue"
     />
     <item 
-    :todo="todo"
-      v-for="todo in filteredTodos" 
-      :key="todo.id"
+      :todo="todo"
+      v-for="(todo, index) in filteredTodos" 
+      :key="index"
       @del="deleteTodo" 
     >
     </item>
@@ -60,9 +60,11 @@ export default {
       this.inputValue = ''
     },
     deleteTodo(id) {
-      this.todos.splice(this.todos.find)
+      this.todos.splice(this.todos.findIndex( todo => todo.id === id), 1)
     },
+
     clearAllCompleted() {
+      // 过滤获取到未完成的item(即todo.completed为false的)
       this.todos = this.todos.filter( todo => !todo.completed)
     },
     toggleFilter(state) {
@@ -77,7 +79,7 @@ export default {
   width: 600px;
   margin: 0 auto;
   box-shadow: 0 0 5px #666;
-  max-height:500px;
+  max-height:480px;
   margin-top: 80px;
   overflow-y: auto;
   border-radius: 10px;

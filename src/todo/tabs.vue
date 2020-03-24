@@ -3,8 +3,8 @@
     <span class="tabs-left" > {{ unFinishedTodoLength }} items left</span>
     <span class="tabs-main">
       <span
-        v-for="(state, index) in states"
-        :key="index"
+        v-for="(state, idx) in states"
+        :key="idx"
         :class="[state, filter === state ? 'actived': '']"
         @click="toggleFilter(state)"
       >
